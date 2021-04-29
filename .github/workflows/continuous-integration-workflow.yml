@@ -14,10 +14,15 @@ jobs:
     - name: test       # Name of step
       run: dotnet test # Command to run
 
-    - name: change directory + npm       # Name of step
+    - name: npm install       # Name of step
       run: |
         cd DotnetTemplate.Web
         npm install
+
+    - name: npm build
+      run: npm build
+      working-directory: DotnetTemplate.Web
+        
 
    # - name: npm build       # Name of step
    #   run: npm run build # Command to run
