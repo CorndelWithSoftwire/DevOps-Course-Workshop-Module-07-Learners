@@ -14,7 +14,7 @@ pipeline {
 				}
 			}
 			stages {
-				stage("building C#") {}
+				stage("building C#") {
 					steps {
 						echo 'Building...'
 						sh 'dotnet build'
