@@ -11,6 +11,9 @@ jobs:
     - name: build       # Name of step
       run: dotnet build # Command to run
 
+    - name: test       # Name of step
+      run: dotnet test # Command to run
+
 
       #dotnet build
       #dotnet test
