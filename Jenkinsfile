@@ -7,10 +7,12 @@ pipeline {
 				docker {
 					image 'mcr.microsoft.com/dotnet/sdk'
 					reuseNode true
-            steps {
-                echo 'Building..'
-				sh 'dotnet build'
-            }
+					steps {
+						echo 'Building..'
+						sh 'dotnet build'
+					}
+				}
+			}
         }
         stage('Testing C#') {
             steps {
