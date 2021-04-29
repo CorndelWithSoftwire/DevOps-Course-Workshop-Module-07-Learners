@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: cd ./DotnetTemplate.Web/ && npm i
-      - run: cd ../ && dotnet build
+      - run: dotnet build
       - run: dotnet test
       - run: cd ./DotnetTemplate.Web/ && npm run build
       - run: npm run lint
