@@ -1,8 +1,8 @@
 pipeline {
     agent any
 	
-	stage('checkout') {
-		 steps {
+	stage('Checkout') {
+		steps {
 			checkout scm
 		}
 	}
@@ -21,6 +21,28 @@ pipeline {
 	stage('Testing C#') {
 		steps {
 			echo 'Testing C#..'
+		}
+	}
+	stage('Installing') {
+		agent {
+			docker {
+				image 'node:14-alpine'
+				reuseNode true	
+			}
+		}
+		steps {
+			echo 'npm install'
+		}
+	}
+	stage('Installing') {
+	agent {
+			docker {
+				image 'node:14-alpine'
+				reuseNode true	
+			}
+		}
+		steps {
+			echo 'npm install'
 		}
 	}
 	stage('Building Typescript') {
