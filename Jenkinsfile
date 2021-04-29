@@ -6,36 +6,31 @@ pipeline {
 				checkout scm
 			}
 		}
-		stage('Build') {
+		stage('C# Stage') {
 			agent {
 				docker {
 					image 'mcr.microsoft.com/dotnet/sdk:5.0'
 					reuseNode true	
 				}
 			}
-			steps {
-				echo 'Building..'
-				sh 'dotnet build'
-			}
-		}
-		stage('Testing C#') {
-			steps {
-				echo 'Testing C#..'
-			}
-		}
-		stage('Installing') {
-			agent {
-				docker {
-					image 'node:14-alpine'
-					reuseNode true	
+			stages {
+				stage("building C#") {}
+					steps {
+						echo 'Building...'
+						sh 'dotnet build'
+					}
 				}
-			}
-			steps {
-				echo 'npm install'
-			}
+				stage('Testing C#') {
+					steps {
+						echo 'Testing...'
+						sh 'dotnet test'
+					}
+				}	
+			}	
 		}
-		stage('Installing') {
-		agent {
+		
+		stage('NPM') {
+			agent {
 				docker {
 					image 'node:14-alpine'
 					reuseNode true	
