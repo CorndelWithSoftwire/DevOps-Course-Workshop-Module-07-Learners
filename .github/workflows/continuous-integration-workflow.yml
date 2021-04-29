@@ -8,4 +8,5 @@ jobs:
     steps:
     - uses: actions/checkout@v2 # Adds a step to checkout the repository code
     - uses: actions/setup-dotnet@v1
-    - run: dotnet build 
+    - run: dotnet build
+    - run: DotnetTemplate.Web/dotnet test 
