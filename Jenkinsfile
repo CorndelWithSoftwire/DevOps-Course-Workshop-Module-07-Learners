@@ -1,13 +1,17 @@
 pipeline {
     agent any
-
-    stages {
+	
+	
+	checkout scm
+		stage('checkout') {
+			 steps {
+                checkout scm
+            }
         stage('Build') {
 			agent {
 				docker {
-					image 'mcr.microsoft.com/dotnet/sdk'
-					reuseNode true
-					
+					image 'mcr.microsoft.com/dotnet/sdk:5.'
+					reuseNode true	
 				}
 			}
 			steps {
