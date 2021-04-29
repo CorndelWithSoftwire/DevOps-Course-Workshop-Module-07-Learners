@@ -14,7 +14,9 @@ jobs:
     - name: test       # Name of step
       run: dotnet test # Command to run
 
-    - name: npm install       # Name of step
+    - name: change directory       # Name of step
+      run: cd DotnetTemplate.Web
+    - name: npm install 
       run: npm install # Command to run
 
    # - name: npm build       # Name of step
