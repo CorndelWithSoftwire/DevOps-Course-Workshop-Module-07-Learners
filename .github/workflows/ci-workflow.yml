@@ -6,6 +6,7 @@ jobs:
     name: Build and test
     runs-on: ubuntu-latest      # Sets the build environment a machine with the latest Ubuntu installed
     steps:
+      - uses: actions/checkout@v2
       - run: cd .\DotnetTemplate.Web\ && npm i
       - run: cd ../ && dotnet build
       - run: dotnet test
