@@ -10,7 +10,6 @@ pipeline {
                 DOTNET_CLI_HOME = "/tmp/DOTNET_CLI_HOME"
             }
             steps {
-               sh 'pwd'
                sh 'dotnet build'
                sh 'dotnet test'
             }
