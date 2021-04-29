@@ -6,9 +6,9 @@ jobs:
     name: Build and test
     runs-on: ubuntu-latest      # Sets the build environment a machine with the latest Ubuntu installed
     steps:
-      - run: cd .\Dotnetate.Web.Tests.dll (net5.0)Template.Web\ && npm i
+      - run: cd .\DotnetTemplate.Web\ && npm i
       - run: cd ../ && dotnet build
       - run: dotnet test
-      - run: cd .\Dotnetate.Web.Tests.dll (net5.0)Template.Web\ && npm run build
+      - run: cd .\DotnetTemplate.Web\ && npm run build
       - run: npm run lint
       - run: npm t
