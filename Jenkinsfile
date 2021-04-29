@@ -1,5 +1,6 @@
-pipeline {
+node {
     agent none
+    checkout scm
     stages {
         stage('Back-End Build and Test') {
             agent {
