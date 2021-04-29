@@ -10,15 +10,17 @@ pipeline {
                sh 'dotnet test'
             }
         }
-        stage('Front-End') {
+        stage('Front-End Build and Test') {
             agent {
                 docker { image 'node:14-alpine' }
             }
-            dir('DotnetTemplate.Web') {
-                sh 'npm i'
-                sh 'npm run build'
-                sh 'npm run lint'
-                sh 'npm t'
+            steps {
+                dir('DotnetTemplate.Web') {
+                    sh 'npm i'
+                    sh 'npm run build'
+                    sh 'npm run lint'
+                    sh 'npm t'
+                }
             }
         }
     }
