@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('1'){
             agent {
-                docker { image 'mcr.microsoft.com/dotnet/sdk:3.1' }
+                docker { image 'mcr.microsoft.com/dotnet/sdk:5.0' }
             }
             environment {
                 DOTNET_CLI_HOME = "/tmp/dotnet_cli_home"
