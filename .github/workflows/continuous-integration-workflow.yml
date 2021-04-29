@@ -14,6 +14,15 @@ jobs:
     - name: test       # Name of step
       run: dotnet test # Command to run
 
+    - name: npm install       # Name of step
+      run: npm install # Command to run
+
+   # - name: npm build       # Name of step
+   #   run: npm run build # Command to run
+
+   # - name: npm t       # Name of step
+   #   run: npm t # Command to run
+
 
       #dotnet build
       #dotnet test
