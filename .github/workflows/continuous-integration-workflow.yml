@@ -16,3 +16,6 @@ jobs:
     - name: BuildTypeScript
       working-directory: ./DotnetTemplate.Web
       run: npm install
+    - name: Linter
+      working-directory: ./DotnetTemplate.Web
+      run: npm run lint
