@@ -1,4 +1,6 @@
 pipeline {
+	environment { DOTNET_CLI_HOME='/tmp/dotnet_cli_home'}
+    
     agent any
 	stages {
 		stage('Checkout') {
@@ -16,13 +18,11 @@ pipeline {
 			stages {
 				stage("building C#") {
 					steps {
-						echo 'Building...'
 						sh 'dotnet build'
 					}
 				}
 				stage('Testing C#') {
 					steps {
-						echo 'Testing...'
 						sh 'dotnet test'
 					}
 				}	
@@ -36,24 +36,29 @@ pipeline {
 					reuseNode true	
 				}
 			}
-			steps {
-				echo 'npm install'
+			stages {
+				stage("Installing NPM") {
+					steps {
+						sh 'npm install'
+					}
+				}
+				stage('Building NPM') {
+					steps {
+						sh 'npm run build'
+					}
+				}
+				stage('Testing Typescript') {
+					steps {
+						sh 'npm t'
+					}
+				}
+				stage('Running linter on Typescript') {
+					steps {
+						sh 'npm run lint'
+					}
+				}
 			}
 		}
-		stage('Building Typescript') {
-			steps {
-				echo 'Building Typescript....'
-			}
-		}
-		stage('Testing Typescript') {
-			steps {
-				echo 'Testing Typescript....'
-			}
-		}
-		stage('Running linter on Typescript') {
-			steps {
-				echo 'Running linter on Typescript....'
-			}
-		}
+		
 	}
 }
