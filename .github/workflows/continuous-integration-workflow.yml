@@ -22,19 +22,11 @@ jobs:
     - name: npm build
       run: npm run build
       working-directory: DotnetTemplate.Web
-        
 
-   # - name: npm build       # Name of step
-   #   run: npm run build # Command to run
+    - name: npm t
+      run: npm t
+      working-directory: DotnetTemplate.Web
 
-   # - name: npm t       # Name of step
-   #   run: npm t # Command to run
-
-
-      #dotnet build
-      #dotnet test
-      #npm install
-      #npm run build
-      #npm t
-      #npm run lint
-      #dotnet test
+    - name: npm lint runner
+      run: npm run lint
+      working-directory: DotnetTemplate.Web
