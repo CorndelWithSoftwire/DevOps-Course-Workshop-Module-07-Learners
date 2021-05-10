@@ -39,22 +39,30 @@ pipeline {
 			stages {
 				stage("Installing NPM") {
 					steps {
-						sh 'npm install'
+						dir("DotnetTemplate.Web") {
+							sh 'npm install'
+						}
 					}
 				}
 				stage('Building NPM') {
 					steps {
-						sh 'npm run build'
+						dir("DotnetTemplate.Web") {
+							sh 'npm run build'
+						}
 					}
 				}
 				stage('Testing Typescript') {
 					steps {
-						sh 'npm t'
+						dir("DotnetTemplate.Web") {
+							sh 'npm t'
+						}
 					}
 				}
 				stage('Running linter on Typescript') {
 					steps {
-						sh 'npm run lint'
+						dir("DotnetTemplate.Web") {
+							sh 'npm run lint'
+						}
 					}
 				}
 			}
