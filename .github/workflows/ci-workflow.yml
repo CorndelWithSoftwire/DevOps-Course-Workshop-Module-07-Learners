@@ -40,4 +40,4 @@ jobs:
           context: .
           file: Dockerfile.app
           push: true
-          tags: anderspfyl/dotnettemplate:latest,anderspfyl/dotnettemplate:${{ GITHUB_SHA }}
+          tags: anderspfyl/dotnettemplate:latest,anderspfyl/dotnettemplate:${GITHUB_SHA}
