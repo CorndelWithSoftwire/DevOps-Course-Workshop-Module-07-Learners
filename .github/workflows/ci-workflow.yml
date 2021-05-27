@@ -38,6 +38,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ../Dockerfile.app
+          file: Dockerfile.app
           push: true
           tags: anderspfyl/dotnettemplate:latest
