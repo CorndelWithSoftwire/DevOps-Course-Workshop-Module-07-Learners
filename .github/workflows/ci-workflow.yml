@@ -23,9 +23,8 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest      # Sets the build environment a machine with the latest Ubuntu installed
     needs: build
+    if: github.ref == 'refs/heads/main'
     steps:
-      # - name: Set up Docker Buildx
-        # uses: docker/setup-buildx-action@v1
       - name: Check out repo
         uses: actions/checkout@v2 
       - name: Login to DockerHub
