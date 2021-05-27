@@ -6,7 +6,6 @@ RUN mkdir /opt/app
 COPY ./ /opt/app
 
 WORKDIR /opt/app
-RUN dotnet build DotnetTemplate.sln
 RUN dotnet publish -c Release -o output -r linux-x64
 
 FROM mcr.microsoft.com/dotnet/runtime:5.0 as production
