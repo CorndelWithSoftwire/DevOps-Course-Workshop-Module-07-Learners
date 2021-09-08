@@ -1,27 +1,23 @@
 pipeline {
-    agent {
-        docker { image 'node:14-alpine' }
-        }
+    agent none
 
     stages {
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
         stage('C# code build & test') {
             agent {
                 docker { image 'mcr.microsoft.com/dotnet/sdk:5.0' }
             }
+            environment {
+                DOTNET_CLI_HOME = '/tmp/dotnet_cli_home'
+            }
             steps {
-//                 sh "sudo apk add bash icu-libs krb5-libs libgcc libintl libssl1.1 libstdc++ zlib"
-//                 sh "chmod 777 dotnet-install.sh"
-//                 sh "#!/bin/bash ./dotnet-install.sh -c Current"
                 sh "dotnet build"
                 sh "dotnet test"
             }
         }
         stage('npm build & test') {
+            agent {
+                docker { image 'node:14-alpine' }
+            }
             steps {
                 dir('DotnetTemplate.Web') {
                     sh "npm install"
