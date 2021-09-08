@@ -6,7 +6,8 @@ jobs:
     name: Build and test
     runs-on: ubuntu-latest      # Sets the build environment a machine with the latest Ubuntu installed
     steps:
-      - uses: actions/checkout@v2 # Adds a step to checkout the repository code
+      - name: Checkout
+        uses: actions/checkout@v2 # Adds a step to checkout the repository code
       - name: Build the C# code
         run: dotnet build
       - name: run the C# tests
@@ -17,3 +18,8 @@ jobs:
       - name: run the npm linting & tests
         working-directory: DotnetTemplate.Web
         run: npm run lint && npm t
+      - name: slack-send
+        uses: slackapi/slack-github-action@v1.15.0
+        id: slack
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
