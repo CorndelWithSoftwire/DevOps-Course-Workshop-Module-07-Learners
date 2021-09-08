@@ -8,6 +8,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2 # Adds a step to checkout the repository code
+      - name: slack-send
+        id: slack
+        uses: slackapi/slack-github-action@v1.15.0
+        with:
+          channel-id: 'general'  # Slack channel id to post message
+          slack-message: 'Pipeline running...'
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       - name: Build the C# code
         run: dotnet build
       - name: run the C# tests
@@ -18,11 +26,4 @@ jobs:
       - name: run the npm linting & tests
         working-directory: DotnetTemplate.Web
         run: npm run lint && npm t
-      - name: slack-send
-        uses: slackapi/slack-github-action@v1.15.0
-        with:
-          channel-id: 'general'  # Slack channel id to post message
-          slack-message: 'Pipeline ran'
-        id: slack
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
