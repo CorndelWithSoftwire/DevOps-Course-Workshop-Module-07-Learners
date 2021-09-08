@@ -1,17 +1,20 @@
 name: CI
-on: [push]                      # Will make the workflow run every time you push to any branch
+on: [ push ]                      # Will make the workflow run every time you push to any branch
 
 jobs:
   build:
     name: Build and test
     runs-on: ubuntu-latest      # Sets the build environment a machine with the latest Ubuntu installed
     steps:
-    - uses: actions/checkout@v2 # Adds a step to checkout the repository code
-    - name: Build the C# code
-      run: dotnet build
+      - uses: actions/checkout@v2 # Adds a step to checkout the repository code
+      - name: Build the C# code
+        run: dotnet build
+      - name: npm install
+        run: cd DotnetTemplate.Web && npm install
 
 
 #      dotnet build
+#      cd to DotnetTemplate.Web
 #      npm install
 #      npm run build
 #      dotnet run
