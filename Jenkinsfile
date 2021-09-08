@@ -32,7 +32,6 @@ pipeline {
                                     [
                                         thresholdTarget: 'Line',
                                         unhealthyThreshold: 90.0,
-                                        unstableThreshold: 90.0,
                                         failUnhealthy: true
                                     ]
                                 ]
