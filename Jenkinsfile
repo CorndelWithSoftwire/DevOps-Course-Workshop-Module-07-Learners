@@ -24,13 +24,28 @@ pipeline {
                     sh "npm run build"
                     sh "npm run lint"
                     sh "npm run test-with-coverage"
-                    publishCoverage adapters: [
-                        istanbulCoberturaAdapter('coverage/cobertura-coverage.xml'){
-                            thresholds {
-                                thresholdTarget "90"
-                                }
-                            }
+//                     publishCoverage adapters: [
+//                         istanbulCoberturaAdapter('coverage/cobertura-coverage.xml'){
+//                             thresholds {
+//                                 thresholdTarget "90"
+//                                 }
+//                             }
+//                     ]
+                    publishCoverage(
+                        adapters: [
+                            istanbulCoberturaAdapter(
+                                path: 'coverage/cobertura-coverage.xml',
+                                    thresholds: [
+                                    [
+                                        thresholdTarget: 'Line',
+                                        unhealthyThreshold: 70.0,
+                                        unstableThreshold: 70.0,
+                                        failUnhealthy: true
+                                    ]
+                                ]
+                        )
                     ]
+                   )
                 }
             }
         }
