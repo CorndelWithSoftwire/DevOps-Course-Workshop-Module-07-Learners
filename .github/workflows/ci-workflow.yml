@@ -20,6 +20,9 @@ jobs:
         run: npm run lint && npm t
       - name: slack-send
         uses: slackapi/slack-github-action@v1.15.0
+        with:
+          channel-id: 'general'  # Slack channel id to post message
+          slack-message: 'Pipeline ran'
         id: slack
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
