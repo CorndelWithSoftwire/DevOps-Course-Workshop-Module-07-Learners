@@ -12,14 +12,14 @@ jobs:
       - name: npm stuff
         run: cd DotnetTemplate.Web && npm install && npm run build
       - name: dotnet run
-        run: dotnet run
+        run: cd DotnetTemplate.Web && dotnet run
       - name: dotnet test
         run: dotnet test
       - name: npm t
         run: npm t
       - name: npm run lint
         run: npm run lint
-        
+
 #      dotnet run
 #      dotnet test
 #      npm t
