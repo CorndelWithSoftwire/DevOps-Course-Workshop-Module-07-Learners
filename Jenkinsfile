@@ -13,7 +13,7 @@ pipeline {
             steps {
 //                 sh "sudo apk add bash icu-libs krb5-libs libgcc libintl libssl1.1 libstdc++ zlib"
                 sh "chmod 777 dotnet-install.sh"
-                sh "./dotnet-install.sh -c Current"
+                sh "#!/bin/bash ./dotnet-install.sh -c Current"
                 sh "dotnet build"
                 sh "dotnet test"
             }
