@@ -10,10 +10,13 @@ pipeline {
             }
         }
         stage('C# code build & test') {
+            agent {
+                docker { image 'dotnet' }
+            }
             steps {
 //                 sh "sudo apk add bash icu-libs krb5-libs libgcc libintl libssl1.1 libstdc++ zlib"
-                sh "chmod 777 dotnet-install.sh"
-                sh "#!/bin/bash ./dotnet-install.sh -c Current"
+//                 sh "chmod 777 dotnet-install.sh"
+//                 sh "#!/bin/bash ./dotnet-install.sh -c Current"
                 sh "dotnet build"
                 sh "dotnet test"
             }
