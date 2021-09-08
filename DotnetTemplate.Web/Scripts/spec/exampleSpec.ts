@@ -7,7 +7,6 @@ describe('Example', () => {
 
     // When
     functionOne();
-//     functionTwo();
 
     // Then
     expect(1).toEqual(one);
