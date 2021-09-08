@@ -11,7 +11,7 @@ pipeline {
         }
         stage('C# code build & test') {
             agent {
-                docker { image 'dotnet' }
+                docker { image 'mcr.microsoft.com/dotnet/sdk:5.0' }
             }
             steps {
 //                 sh "sudo apk add bash icu-libs krb5-libs libgcc libintl libssl1.1 libstdc++ zlib"
