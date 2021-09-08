@@ -11,7 +11,7 @@ pipeline {
         }
         stage('C# code build & test') {
             steps {
-                sh "apk add bash icu-libs krb5-libs libgcc libintl libssl1.1 libstdc++ zlib"
+                sh "sudo apk add bash icu-libs krb5-libs libgcc libintl libssl1.1 libstdc++ zlib"
                 sh "dotnet build"
                 sh "dotnet test"
             }
