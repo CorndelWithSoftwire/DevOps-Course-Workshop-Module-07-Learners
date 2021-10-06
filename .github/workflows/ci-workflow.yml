@@ -24,6 +24,8 @@ jobs:
     name: Check if branch is main
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deploying to production server on branch $GITHUB_REF"
 
   push_to_registry:
     needs: prod-check
