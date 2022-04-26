@@ -1,4 +1,4 @@
-![Build Status](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?branch=ci-test)
+![Build Status](https://github.com/josephsilcock/DevOps-Course-Workshop-Module-07-Learners/workflows/continuous-integration-workflow.yml)
 
 # Workshop Module 07
 
