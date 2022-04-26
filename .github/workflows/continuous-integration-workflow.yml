@@ -11,7 +11,7 @@ jobs:
       - name: Setup dotnet
         uses: actions/setup-dotnet@v2
         with:
-        dotnet-version: '6.x.x'
+          dotnet-version: '6.x.x'
       - name: Build
         run: dotnet build
       - name: C# Tests
