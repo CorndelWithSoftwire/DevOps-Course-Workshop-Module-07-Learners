@@ -19,3 +19,20 @@ jobs:
     - name: Run backend tests
       run: dotnet test
 
+    - name: Setup NodeJS
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    - name: Install node depenedencies
+      run: npm install
+
+    - name: Build frontend
+      run: npm run build
+
+    - name: Lint frontend
+      run: npm run lint
+
+    - name: Test frontend
+      run: npm t
+
