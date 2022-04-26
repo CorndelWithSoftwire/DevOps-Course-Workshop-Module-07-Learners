@@ -12,7 +12,22 @@ jobs:
         uses: actions/setup-dotnet@v2
         with:
           dotnet-version: '6.x.x'
-      - name: Build
+      - name: Setup node
+        uses: actions/setup-node@v3
+      - name: Build C#
         run: dotnet build
+      - name: Build Typescript
+        run: |
+          cd DotnetTemplate.Web
+          npm install
+          npm run build
       - name: C# Tests
         run: dotnet test
+      - name: Typescript Tests
+        run: |
+          cd DotnetTemplate.Web
+          npm t
+      - name: Lint
+        run: |
+          cd DotnetTemplate.Web
+          npm run lint
