@@ -2,7 +2,7 @@ name: Continuous Integration
 on: [push]
 
 jobs:
-  build:
+  test_1:
     name: C# Tests
     runs-on: ubuntu-latest
     steps:
@@ -16,6 +16,7 @@ jobs:
         run: dotnet build
       - name: C# Tests
         run: dotnet test
+  test_2:
     name: Typescript Tests
     runs-on: ubuntu-latest
     steps:
