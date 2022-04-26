@@ -13,3 +13,9 @@ jobs:
       with:
         dotnet-version: '6.0.x'
 
+    - name: Build backend
+      run: dotnet build
+
+    - name: Run backend tests
+      run: dotnet test
+
