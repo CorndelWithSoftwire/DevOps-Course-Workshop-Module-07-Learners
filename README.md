@@ -1,4 +1,4 @@
-![Build Status](https://github.com/josephsilcock/DevOps-Course-Workshop-Module-07-Learners/workflows/continuous-integration-workflow.yml)
+![Build Status](https://github.com/josephsilcock/DevOps-Course-Workshop-Module-07-Learners/actions/workflows/continuous-integration-workflow.yml/badge.svg)
 
 # Workshop Module 07
 
