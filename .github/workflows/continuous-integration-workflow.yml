@@ -24,15 +24,19 @@ jobs:
       with:
         node-version: '16'
 
-    - name: Install node depenedencies
+    - name: Install node dependencies
+      working-directory: ./DotnetTemplate.Web
       run: npm install
 
     - name: Build frontend
+      working-directory: ./DotnetTemplate.Web
       run: npm run build
 
     - name: Lint frontend
+      working-directory: ./DotnetTemplate.Web
       run: npm run lint
 
     - name: Test frontend
+      working-directory: ./DotnetTemplate.Web
       run: npm t
 
