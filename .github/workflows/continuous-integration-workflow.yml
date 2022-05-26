@@ -25,6 +25,8 @@ jobs:
       working-directory: DotnetTemplate.Web
       run: npm run lint
 
+
+name: Slack Notifications
 on:
   workflow_run:
     workflows: [Continuous Integration]
