@@ -1,4 +1,4 @@
-![CI Workflow](https://github.com/mpursell/DevOps-Course-Workshop-Module-07-Learners/actions/workflows/continuous-integration-workflow.yaml/badge.svg)
+![CI Workflow](https://github.com/github/docs/actions/workflows/continuous-integration-workflow.yml/badge.svg?event=push)
 
 # Workshop Module 07
 
