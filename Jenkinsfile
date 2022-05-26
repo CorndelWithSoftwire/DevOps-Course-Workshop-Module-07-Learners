@@ -6,10 +6,10 @@ pipeline{
     stages{
         stage('dotnet'){
             steps{
-                sh 'apt update; \
-                apt install -y apt-transport-https && \
-                apt update && \
-                apt install -y dotnet-sdk-6.0'
+                sh 'sudo apt update; \
+                sudo apt install -y apt-transport-https && \
+                sudo apt update && \
+                sudo apt install -y dotnet-sdk-6.0'
 
                 sh 'dotnet build'
                 sh 'dotnet test'
