@@ -1,3 +1,5 @@
+![CI Workflow](https://github.com/mpursell/DevOps-Course-Workshop-Module-07-Learners/actions/workflows/continuous-integration-workflow.yaml/badge.svg)
+
 # Workshop Module 07
 
 This repository is for learners on Corndel's DevOps apprenticeship.
