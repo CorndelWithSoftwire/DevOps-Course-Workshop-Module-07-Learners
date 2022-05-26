@@ -2,7 +2,8 @@ name: Slack Notifications
 on:
   workflow_run:
     workflows: [Continuous Integration]
-    types: [Completed]
+    types: [completed]
+    branches: [main]
 
 jobs:
   on-success: 
@@ -17,7 +18,7 @@ jobs:
       env:
         SLACK_INCOMING_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_MESSAGE: 'Dotnet Build Successful'
-        SLACK_TITLE: 'Build and Test Successful'
+        SLACK_TITLE: 'Dotnet Build and Test Successful'
 
 
   on-failure:
@@ -32,4 +33,4 @@ jobs:
       env:
         SLACK_INCOMING_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_MESSAGE: 'Dotnet Build Failed'
-        SLACK_TITLE: 'Build and Test Failed'
+        SLACK_TITLE: 'Dotnet Build and Test Failed'
