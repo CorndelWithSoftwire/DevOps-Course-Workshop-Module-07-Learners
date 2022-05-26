@@ -28,7 +28,7 @@ jobs:
   slackNotification:
     name: Slack notification
     runs-on: ubuntu-latest
-    environment: Build and Test environment
+    environment: "Build & Test"
     steps:
     - uses: actions/checkout@v2
     - name: Slack Notification Build & Test
