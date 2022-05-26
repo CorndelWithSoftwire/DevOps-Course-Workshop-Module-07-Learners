@@ -1,16 +1,18 @@
 pipeline{
-    agent any
+    agent {
+        docker image 'slim-buster:latest'
+    }
 
     stages{
         stage('dotnet'){
             steps{
-                sh 'su apt update; \
-                su apt install -y apt-transport-https && \
-                su apt update && \
-                su apt install -y dotnet-sdk-6.0'
+                sh 'apt update; \
+                apt install -y apt-transport-https && \
+                apt update && \
+                apt install -y dotnet-sdk-6.0'
 
-                sh 'su dotnet build'
-                sh 'su dotnet test'
+                sh 'dotnet build'
+                sh 'dotnet test'
             }
         }
 
