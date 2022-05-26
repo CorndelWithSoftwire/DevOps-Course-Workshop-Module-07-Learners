@@ -22,4 +22,5 @@ jobs:
       run: npm t
     
     - name: npm linting
+      working-directory: DotnetTemplate.Web
       run: npm run lint
