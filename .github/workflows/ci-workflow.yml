@@ -34,6 +34,6 @@ jobs:
       - name: Slack Notification Build & Test
         uses: bryannice/gitactions-slack-notification@2.0.0
         env:
-          SLCAK_INCOMING_WEBHOOK: ${{ secrets.SLACK_WEBHOOK}}
+          SLACK_INCOMING_WEBHOOK: ${{ secrets.SLACK_WEBHOOK}}
           SLACK_MESSAGE: 'Dotnet build running'
           SLACK_TITLE: 'Build and Test Notification'
