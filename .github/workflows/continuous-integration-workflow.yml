@@ -10,8 +10,11 @@ jobs:
     - name: build
       run: dotnet build
 
-    - name: test
-      run: 
-        - dotnet test
-        - npm t
-        - npm run lint
+    - name: dotnet test
+      run: dotnet test
+    
+    - name: npm test
+      run: npm t
+    
+    - name: npm linting
+      run: npm run lint
