@@ -1,7 +1,7 @@
 pipeline{
     agent {
-        docker image 'slim-buster:latest'
-    }
+        docker {image 'slim-buster:latest'}
+        }
 
     stages{
         stage('dotnet'){
