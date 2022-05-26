@@ -1,6 +1,6 @@
 pipeline{
     agent {
-        docker {image 'slim-buster:latest'}
+        docker {image 'buster-slim:latest'}
         }
 
     stages{
