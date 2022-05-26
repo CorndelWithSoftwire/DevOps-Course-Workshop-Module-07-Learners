@@ -12,6 +12,10 @@ jobs:
 
     - name: dotnet test
       run: dotnet test
+
+    - name: install npm dependencies
+      working-directory: DotnetTemplate.Web
+      run: npm install
     
     - name: npm test
       working-directory: DotnetTemplate.Web
