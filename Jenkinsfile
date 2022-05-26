@@ -1,10 +1,11 @@
 pipeline{
-    agent {
-        docker {image 'ubuntu:latest'}
-        }
+    agent none
 
     stages{
         stage('dotnet'){
+           agent {
+                docker {image 'ubuntu:latest'}
+            }
             steps{
                 sh 'sudo apt update; \
                 sudo apt install -y apt-transport-https && \
