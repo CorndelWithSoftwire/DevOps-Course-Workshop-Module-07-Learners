@@ -25,16 +25,39 @@ jobs:
       working-directory: DotnetTemplate.Web
       run: npm run lint
 
-  slackNotification:
+on:
+  workflow_run:
+    workflows: [Continuous Integration]
+    types: [Completed]
+
+jobs:
+  on-success: 
     name: Slack notification
     runs-on: ubuntu-latest
     environment: "Build & Test"
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - uses: actions/checkout@v2
     - name: Slack Notification Build & Test
       uses: bryannice/gitactions-slack-notification@2.0.0
       env:
         SLACK_INCOMING_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        SLACK_MESSAGE: 'Dotnet build running'
-        SLACK_TITLE: 'Build and Test Notification'
+        SLACK_MESSAGE: 'Dotnet Build Successful'
+        SLACK_TITLE: 'Build and Test Successful'
+
+
+  on-failure:
+    name: Slack notification
+    runs-on: ubuntu-latest
+    environment: "Build & Test"
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+    - uses: actions/checkout@v2
+    - name: Slack Notification Build & Test
+      uses: bryannice/gitactions-slack-notification@2.0.0
+      env:
+        SLACK_INCOMING_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_MESSAGE: 'Dotnet Build Failed'
+        SLACK_TITLE: 'Build and Test Failed'
+
 
