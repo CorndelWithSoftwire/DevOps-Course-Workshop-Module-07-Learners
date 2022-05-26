@@ -4,13 +4,13 @@ pipeline{
     stages{
         stage('dotnet'){
             steps{
-                sh 'apt update; \
-                apt install -y apt-transport-https && \
-                apt update && \
-                apt install -y dotnet-sdk-6.0'
+                sh 'su apt update; \
+                su apt install -y apt-transport-https && \
+                su apt update && \
+                su apt install -y dotnet-sdk-6.0'
 
-                sh 'dotnet build'
-                sh 'dotnet test'
+                sh 'su dotnet build'
+                sh 'su dotnet test'
             }
         }
 
