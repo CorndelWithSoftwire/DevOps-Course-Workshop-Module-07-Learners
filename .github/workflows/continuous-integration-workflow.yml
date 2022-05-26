@@ -8,11 +8,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2 # Adds a step to checkout the repository code
     - name: build
-      run: 
-        - dotnet build
+      run: dotnet build
 
     - name: test
-      run: 
-        - dotnet test
-        - npm t
-        - npm run lint
+      run: dotnet test
+      run: npm t
+      run: npm run lint
