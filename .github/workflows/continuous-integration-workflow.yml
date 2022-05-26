@@ -11,8 +11,8 @@ jobs:
       run: 
         - dotnet build
 
-    -name: test
-     run: 
+    - name: test
+      run: 
         - dotnet test
         - npm t
         - npm run lint
