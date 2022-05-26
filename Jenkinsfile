@@ -7,10 +7,10 @@ pipeline{
                 docker {image 'ubuntu:latest'}
             }
             steps{
-                sh 'sudo apt update; \
-                sudo apt install -y apt-transport-https && \
-                sudo apt update && \
-                sudo apt install -y dotnet-sdk-6.0'
+                sh 'apt update; \
+                apt install -y apt-transport-https && \
+                apt update && \
+                apt install -y dotnet-sdk-6.0'
 
                 sh 'dotnet build'
                 sh 'dotnet test'
