@@ -19,3 +19,6 @@ jobs:
 
     - name: Lint TS code
       run: cd DotnetTemplate.Web && npm run lint
+
+    - name: Run TS tests
+      run: cd DotnetTemplate.Web && npm t
