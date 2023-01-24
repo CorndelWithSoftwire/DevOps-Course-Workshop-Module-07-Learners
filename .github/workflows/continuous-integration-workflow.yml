@@ -1,0 +1,50 @@
+name: Continuous Integration
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  build:
+    name: Build and test
+    runs-on: ubuntu-latest      # Sets the build environment a machine with the latest Ubuntu installed
+    steps:
+    - uses: actions/checkout@v2 # Adds a step to checkout the repository code
+
+    - name: Build C# code
+      run: dotnet build
+
+    - name: Run C# tests
+      run: dotnet test
+
+    - name: Build TS code
+      run: cd DotnetTemplate.Web && npm install && npm run build
+
+    - name: Lint TS code
+      run: cd DotnetTemplate.Web && npm run lint
+
+    - name: Run TS tests
+      run: cd DotnetTemplate.Web && npm t
+
+    - name: Send build result to Slack
+      id: slack
+      uses: slackapi/slack-github-action@v1.23.0
+      with:
+        payload: |
+          {
+            "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}",
+            "blocks": [
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+                }
+              }
+            ]
+          }
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
