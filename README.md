@@ -1,3 +1,5 @@
+![example branch parameter](https://github.com/CarlyG55/DevOps-Course-Workshop-Module-07-Learners/actions/workflows/main.yml/badge.svg?branch=add-workflow)
+
 # Workshop Module 07
 
 This repository is for learners on Corndel's DevOps apprenticeship.
