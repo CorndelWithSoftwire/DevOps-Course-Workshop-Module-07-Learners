@@ -1,4 +1,4 @@
-![example branch parameter](https://github.com/CarlyG55/DevOps-Course-Workshop-Module-07-Learners/actions/workflows/main.yml/badge.svg?branch=add-workflow)
+![add-workflow](https://github.com/CarlyG55/DevOps-Course-Workshop-Module-07-Learners/actions/workflows/continuous-integration-workflow.yml/badge.svg?branch=add-workflow)
 
 # Workshop Module 07
 
