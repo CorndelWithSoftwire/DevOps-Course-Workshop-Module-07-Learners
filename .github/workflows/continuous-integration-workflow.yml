@@ -13,3 +13,6 @@ jobs:
 
     - name: Run C# tests
       run: dotnet test
+
+    - name: Build TS code
+      run: cd DotnetTemplate.Web && npm install && npm run build
