@@ -12,7 +12,7 @@ jobs:
     - name: run C#
       run: dotnet build
     - name: cd to folder
-      run: cd cd .\DotnetTemplate.Web\
+      run: cd .\DotnetTemplate.Web\
     - name: run C# test
       run: dotnet test
     - name: run the TypeScript tests
