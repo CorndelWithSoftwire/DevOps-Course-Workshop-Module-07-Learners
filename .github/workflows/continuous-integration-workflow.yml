@@ -14,8 +14,11 @@ jobs:
     - name: run C# test
       working-directory: ./DotnetTemplate.Web
       run: dotnet test
+    - name: install and build npm
+      working-directory: ./DotnetTemplate.Web
+      run: npm install && npm run build
     - name: run the TypeScript tests
-      working-directory: ./DotnetTemplate.Web/Scripts/spec
+      working-directory: ./DotnetTemplate.Web
       run: npm t
     - name: run lint on TypeScript code
       working-directory: ./DotnetTemplate.Web
