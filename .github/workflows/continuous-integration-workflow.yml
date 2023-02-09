@@ -23,6 +23,3 @@ jobs:
     - name: run lint on TypeScript code
       working-directory: ./DotnetTemplate.Web
       run: npm run lint
-    - name: run app
-      working-directory: ./DotnetTemplate.Web
-      run: dotnet run
