@@ -12,7 +12,7 @@ jobs:
     - name: run C#
       run: dotnet build
     - name: cd to folder
-      run: cd C:\Users\helen.curtis\DevOps-course-starter\DevOps-Course-Workshop-Module-07-Learners\DotnetTemplate.Web
+      run: cd DotnetTemplate.Web
     - name: run C# test
       run: dotnet test
     - name: run the TypeScript tests
