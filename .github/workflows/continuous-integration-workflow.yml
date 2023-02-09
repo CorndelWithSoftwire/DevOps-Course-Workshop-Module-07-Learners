@@ -16,7 +16,7 @@ jobs:
     - name: run C# test
       run: dotnet test
     - name: run the TypeScript tests
-      run: npm t
+      run: npm test
     - name: run lint on TypeScript code
       run: npm run lint
     - name: run app
