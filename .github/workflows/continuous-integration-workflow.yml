@@ -11,13 +11,14 @@ jobs:
       run: echo 'Hello world' # Command to run
     - name: run C#
       run: dotnet build
-    - name: cd to folder
-      run: cd DotnetTemplate.Web
     - name: run C# test
+      working-directory: ./DotnetTemplate.Web
       run: dotnet test
     - name: run the TypeScript tests
+      working-directory: ./DotnetTemplate.Web
       run: npm test
     - name: run lint on TypeScript code
+      working-directory: ./DotnetTemplate.Web
       run: npm run lint
     - name: run app
       run: dotnet run
