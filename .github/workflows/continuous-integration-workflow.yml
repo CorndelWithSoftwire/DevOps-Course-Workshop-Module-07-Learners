@@ -24,4 +24,5 @@ jobs:
       working-directory: ./DotnetTemplate.Web
       run: npm run lint
     - name: run app
+      working-directory: ./DotnetTemplate.Web
       run: dotnet run
