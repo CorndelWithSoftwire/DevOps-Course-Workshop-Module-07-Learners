@@ -15,7 +15,7 @@ jobs:
       working-directory: ./DotnetTemplate.Web
       run: dotnet test
     - name: run the TypeScript tests
-      working-directory: ./DotnetTemplate.Web
+      working-directory: ./DotnetTemplate.Web/Scripts/spec
       run: npm t
     - name: run lint on TypeScript code
       working-directory: ./DotnetTemplate.Web
