@@ -9,15 +9,15 @@ jobs:
     - uses: actions/checkout@v2 # Adds a step to checkout the repository code
     - name: Hello world       # Name of step
       run: echo 'Hello world' # Command to run
-    -name: run C#
+    - name: run C#
       run: dotnet build
-    -name: cd to folder
+    - name: cd to folder
       run: cd cd .\DotnetTemplate.Web\
-    -name: run C# test
+    - name: run C# test
       run: dotnet test
-    -name: run the TypeScript tests
+    - name: run the TypeScript tests
       run: npm t
-    -name: run lint on TypeScript code
+    - name: run lint on TypeScript code
       run: npm run lint
-    -name: run app
+    - name: run app
       run: dotnet run
